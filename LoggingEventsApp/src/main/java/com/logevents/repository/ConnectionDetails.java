@@ -22,12 +22,7 @@ public class ConnectionDetails {
 			Properties prop = new Properties();
 			prop.load(fis);
 
-			/*
-			 * Class.forName("org.hsqldb.jdbc.JDBCDriver");
-			 * 
-			 * con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/Test", "SA",
-			 * "");
-			 */
+			
 
 			Class.forName(prop.getProperty("drivername"));
 
