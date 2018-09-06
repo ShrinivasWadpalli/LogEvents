@@ -3,9 +3,11 @@
  */
 package com.log.events;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +38,9 @@ public class LoggingEventsApp {
 		LogEventsData logEventsData = new LogEventsData();
 
 		try {
-			Object obj = parser.parse(new FileReader("D:\\logevents.json"));
+
+			Object obj = parser.parse(new FileReader("logevents.json"));
+					
 			JSONObject jsonObject = (JSONObject) obj;
 			EventDetails eventDetails = new EventDetails();
 
@@ -58,8 +62,9 @@ public class LoggingEventsApp {
 					if (timeStamp > 4) {
 						eventDetails.setEventId(logevents.getId());
 						eventDetails.setEventDuration(Long.toString(timeStamp));
-						logEventsData.insertLogEvents(eventDetails.getEventId(), Long.toString(timeStamp));
-						//System.out.println(eventDetails.getEventId() + ":" + timeStamp);
+						 logEventsData.insertLogEvents(eventDetails.getEventId(),
+						 Long.toString(timeStamp));
+						
 					}
 
 				}
